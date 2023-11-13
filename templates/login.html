@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Portal</title>
+</head>
+<body style = 'text-align: center; background-image: url("https://e0.pxfuel.com/wallpapers/30/974/desktop-wallpaper-microsoft-windows-11-light.jpg"); background-size: cover'>
+<h1 style = 'color: blue'>NLP Web Application</h1>
+<h2 style = 'color: white'>Login Here</h2>
+
+{% if message%}
+<p style = 'color: white'>{{message}}</p>
+{% endif%}
+
+    <form action = '/perform_login' method = 'post'>
+        <label>Email</label><br><br>
+        <input type = 'email' name = 'user_cha_email' required><br><br>
+        <label>Password</label><br><br>
+        <input type = 'password' name = 'user_cha_password' required><br><br>
+        <input type = 'submit' value = 'Login' style = 'height: 30px; width: 150px'>
+'
+        <p>Not a member? <a href = '/register'>Register here</a>.</p>
+    </form>
+</body>
+</html>

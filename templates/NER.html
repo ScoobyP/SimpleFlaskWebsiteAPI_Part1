@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NER</title>
+</head>
+<body style = 'text-align: center; background-image: url("https://wallpapers.com/images/hd/light-color-background-ruw31r31xtbtvaf5.jpg")'>
+<form action = '/perform_ner' method="post">
+    <label><h2>Enter your text here for NAME ENTITY RECOGNITION</h2></label><br><br>
+    <textarea rows = '10' cols = '50' name = 'text_for_ner'></textarea><br><br>
+    <input type = 'submit' value = 'Perform NER' style = 'height: 40px; width: 180px; color: white; background-color: green'><BR><BR>
+
+</form>
+{% if result%}
+<p>{{result}}</p>
+{% endif %}
+
+
+
+</body>
+</html>

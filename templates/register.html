@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Portal</title>
+</head>
+<body style = 'text-align: center; background-image: url("https://e0.pxfuel.com/wallpapers/30/974/desktop-wallpaper-microsoft-windows-11-light.jpg"); background-size: cover'>
+<h1>NLP Web Application</h1>
+<h2>Register Here</h2>
+
+    {% if message%}
+    <p style =  'color: maroon'>{{message}}</p>
+    {% endif%}
+
+    <form action = '/perform_registration' method = 'post'>
+        <label>Name</label><br>
+        <input type = 'text' name = 'user_cha_naav' required><br><br>
+        <label>Email</label><br>
+        <input type = 'email' name = 'user_cha_email' required><br><br>
+        <label>Password</label><br>
+        <input type = 'password' name = 'user_cha_password' required><br><br>
+        <input type = 'submit' value = 'Register' style = 'height: 30px; width: 150px'>
+'
+        <p>Already a member? <a href = '/'>Login here</a>.</p>
+    </form>
+</body>
+</html>
