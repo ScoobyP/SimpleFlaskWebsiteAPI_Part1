@@ -1,13 +1,15 @@
 from flask import Flask, render_template, request, redirect, session
 from db import Database
 import nerAPI
+import os
 
 website = Flask(__name__)
 dbo = Database()
-
+website.secret_key = os.urandom(24)
 
 @website.route('/')
 def page_1():
+
     return render_template('login.html')
 
 @website.route('/register')
@@ -31,20 +33,25 @@ def page_4():
     user_password = request.form.get('user_cha_password')
     response = dbo.check_info(user_email, user_password)
     if response:
+        session['user_id'] = os.urandom(12)
         return redirect('/profile')
     else:
         return render_template('login.html', message = 'Incorrect email and/or password')
 
 @website.route('/profile')
 def page_5():
-
-    return render_template('profile.html')
+    if 'user_id' in session:
+        return render_template('profile.html')
+    else:
+        return redirect('/')
 
 
 @website.route('/ner')
 def page_6():
-
-    return render_template('NER.html')
+    if 'user_id' in session:
+        return render_template('NER.html')
+    else:
+        return redirect('/')
 
 
 
@@ -60,7 +67,10 @@ def page_7():
 
 @website.route('/sentiment_analysis')
 def page_8():
-    return render_template('SenAna.html')
+    if 'user_id' in session:
+        return render_template('SenAna.html')
+    else:
+        return redirect('/')
 
 @website.route('/perform_SA', methods = ['post'])
 def page_9():
