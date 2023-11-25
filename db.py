@@ -1,4 +1,5 @@
 import json
+
 class Database:
     def insert_info(self, name, email, password):
         with open('users.json', 'r') as rf:
@@ -10,7 +11,7 @@ class Database:
                 with open('users.json', 'w') as wf:
                     json.dump(user_info, wf)
                     return 1
-    def check_info(self, email, password):
+    def check_info( self, email, password):
         with open('users.json', 'r') as rf:
             user_info = json.load(rf)
             if email in user_info:
